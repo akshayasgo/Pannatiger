@@ -1,42 +1,61 @@
-let nextBtn = document.querySelector('.next');
-let prevBtn = document.querySelector('.prev');
+var nextBtn = document.querySelector('.next'),
+    prevBtn = document.querySelector('.prev'),
+    carousel = document.querySelector('.carousel'),
+    list = document.querySelector('.list'), 
+    item = document.querySelectorAll('.item'),
+    runningTime = document.querySelector('.carousel .timeRunning') 
 
-let slider = document.querySelector('.slider');
-let sliderList = slider.querySelector('.slider .list');
-let thumbnail = document.querySelector('.slider .thumbnail');
-let thumbnailItems = thumbnail.querySelectorAll('.item');
+let timeRunning = 3000 
+let timeAutoNext = 7000
 
-thumbnail.appendChild(thumbnailItems[0]);
-
-// Function for next button 
-nextBtn.onclick = function() {
-    moveSlider('next');
+nextBtn.onclick = function(){
+    showSlider('next')
 }
 
-// Function for prev button 
-prevBtn.onclick = function() {
-    moveSlider('prev');
+prevBtn.onclick = function(){
+    showSlider('prev')
 }
 
-function moveSlider(direction) {
-    let sliderItems = sliderList.querySelectorAll('.item');
-    let thumbnailItems = document.querySelectorAll('.thumbnail .item');
-    
-    if (direction === 'next') {
-        sliderList.appendChild(sliderItems[0]);
-        thumbnail.appendChild(thumbnailItems[0]);
-        slider.classList.add('next');
-    } else {
-        sliderList.prepend(sliderItems[sliderItems.length - 1]);
-        thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1]);
-        slider.classList.add('prev');
+let runTimeOut 
+
+let runNextAuto = setTimeout(() => {
+    nextBtn.click()
+}, timeAutoNext)
+
+
+function resetTimeAnimation() {
+    runningTime.style.animation = 'none'
+    runningTime.offsetHeight /* trigger reflow */
+    runningTime.style.animation = null 
+    runningTime.style.animation = 'runningTime 7s linear 1 forwards'
+}
+
+
+function showSlider(type) {
+    let sliderItemsDom = list.querySelectorAll('.carousel .list .item')
+    if(type === 'next'){
+        list.appendChild(sliderItemsDom[0])
+        carousel.classList.add('next')
+    } else{
+        list.prepend(sliderItemsDom[sliderItemsDom.length - 1])
+        carousel.classList.add('prev')
     }
 
-    slider.addEventListener('animationend', function() {
-        if (direction === 'next') {
-            slider.classList.remove('next');
-        } else {
-            slider.classList.remove('prev');
-        }
-    }, { once: true });
+    clearTimeout(runTimeOut)
+
+    runTimeOut = setTimeout( () => {
+        carousel.classList.remove('next')
+        carousel.classList.remove('prev')
+    }, timeRunning)
+
+
+    clearTimeout(runNextAuto)
+    runNextAuto = setTimeout(() => {
+        nextBtn.click()
+    }, timeAutoNext)
+
+    resetTimeAnimation() // Reset the running time animation
 }
+
+// Start the initial animation 
+resetTimeAnimation()
