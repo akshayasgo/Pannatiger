@@ -1,50 +1,1044 @@
-html {
-    scroll-behavior: smooth;
+body {
+  margin: 0;
+  padding-top: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #f9fbe7;
+}
+
+.custom-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #004d40, #00796b);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.custom-header .site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.custom-header .tiger-icon {
+  font-size: 26px;
+  color: #ffcc00;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .linear-btn-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0;
+  50% {
+    transform: translateY(-3px);
   }
-  
-  .book-btn {
-    padding: 14px 35px;
-    background: linear-gradient(135deg, #3b6a33, #a4d85e);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
+}
+
+.custom-header .contact-number a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.custom-header .contact-number i {
+  margin-right: 8px;
+  color: #ffcc00;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .custom-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 14px;
+  }
+
+  .custom-header .site-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .custom-header .contact-number a {
+    font-size: 14px;
+  }
+}
+
+/* Banner Section */
+.panna-safari-container .banner-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0px; /* Adjust this if needed */
+  box-sizing: border-box;
+}
+
+.panna-safari-container .banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.panna-safari-container .banner-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.panna-safari-container .banner-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.panna-safari-container .banner-text {
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+.panna-safari-container .banner-button {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.panna-safari-container .banner-button:hover {
+  background-color: #0056b3;
+}
+
+/* Floating Contact Button Section */
+.chatbot-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.chatbot-toggle {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.chatbot-options {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  min-width: 200px;
+}
+
+.chatbot-options.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chatbot-options a {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.chatbot-options a:hover {
+  background-color: #eee;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .chatbot-container {
+      bottom: 90px;
+      right: 15px;
+  }
+
+  .chatbot-toggle {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+  }
+
+  .chatbot-options {
+      min-width: 170px;
+      bottom: 60px;
+  }
+}
+
+/* Scoped styles for the Jungle Carousel */
+.jungle-carousel-wrapper {
+  padding: 40px 20px;
+  background: url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png') repeat #e0f2f1;
+  border-radius: 15px;
+  overflow: hidden;  /* Hide the overflow to keep the scroll effect clean */
+}
+
+.jungle-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hide default scrollbar */
+  -ms-overflow-style: none; /* Hide default scrollbar */
+  padding-bottom: 10px;
+  scroll-behavior: smooth;  /* Smooth scroll effect */
+}
+
+.jungle-carousel::-webkit-scrollbar {
+  display: none;  /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
+}
+
+.jungle-card {
+  flex: 0 0 auto; /* Prevent items from stretching to fill the container */
+  max-width: 320px;
+  background: white;
+  border-radius: 16px;
+  scroll-snap-align: start;  /* Ensures each card snaps to the left edge */
+  box-shadow: 0 8px 20px rgba(0, 105, 92, 0.2);
+  display: flex;
+  flex-direction: column;
+  background-image: url('https://www.transparenttextures.com/patterns/leaves.png');
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.jungle-card:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
+}
+
+.jungle-card .card-header {
+  background: linear-gradient(135deg, #004d40, #00695c);
+  color: white;
+  padding: 18px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.jungle-card .icon-title {
+  display: flex;
+  align-items: center;
+}
+
+.jungle-card .icon-title i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.jungle-card .icon-title h3 {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.jungle-card .badge {
+  background: #ff5722;
+  color: white;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.jungle-card .badge.green {
+  background: #4caf50;
+}
+
+.jungle-card .badge.orange {
+  background: #ff9800;
+}
+
+.jungle-card .badge.blue {
+  background: #2196f3;
+}
+
+.jungle-card .card-body {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #333;
+  list-style: none;
+}
+
+.jungle-card .card-body li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.jungle-card .card-body i {
+  margin-right: 10px;
+  color: #00695c;
+}
+
+.jungle-card .card-footer {
+  background: #e0f7fa;
+  padding: 12px 20px;
+  font-size: 13px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: #004d40;
+}
+
+@media (max-width: 768px) {
+  .jungle-card {
+      flex: 0 0 100%;  /* Make each card take up 100% width on smaller screens */
+  }
+}
+
+
+  .table-section {
+    width: 100%;
+    max-width: 800px;
+    background: #f0fdf4;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .table-section h5 {
+    margin: 0 0 12px;
+    color: #2e7d32;
+    font-size: 16px;
     font-weight: 600;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .accordion-table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .accordion-row {
+    border: 1px solid #c8e6c9;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .accordion-header {
+    padding: 10px 14px;
+    background: #a5d6a7;
+    color: #1b5e20;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    word-break: break-word;
+  }
+
+  .accordion-content {
+    display: none;
+    background: #ffffff;
+    padding: 10px 14px;
+    word-break: break-word;
+  }
+
+  .accordion-row.open .accordion-content {
+    display: block;
+  }
+
+  .accordion-row.open .arrow {
+    transform: rotate(45deg);
+    font-weight: bold;
+  }
+
+  .arrow {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  .note {
+    margin-top: 12px;
+    background: #fffde7;
+    border-left: 4px solid #ffca28;
+    padding: 10px;
+    font-size: 13px;
+    color: #4e4300;
+    word-break: break-word;
+  }
+
+  /* Responsive fix */
+  @media (max-width: 600px) {
+    .accordion-header, .accordion-content, .note {
+      font-size: 13px;
+      padding: 8px 10px;
+    }
+
+    .arrow {
+      font-size: 16px;
+    }
+  }
+
+  /* pricing  */
+
+  /* Scoped Styles for the Panna Safari & Hotel Pricing Section */
+.panna-pricing-section {
+  padding: 50px 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.panna-pricing-title {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  gap: 12px;
+}
+
+.panna-pricing-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #d9e5dd;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 18px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.card-body {
+  padding: 18px 20px;
+  font-size: 14.5px;
+  color: #444;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed #d0e2d3;
+  padding-bottom: 10px;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+}
+
+.price-label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.price-label i {
+  margin-right: 10px;
+}
+
+.passenger-limit {
+  font-size: 0.85rem;
+  color: #888;
+  margin-left: 8px;
+}
+
+.price-tag {
+  background: #ffee58;
+  color: #222;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.card-footer {
+  padding: 14px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.info-tag {
+  background: #4fc3f7;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+/* Safari-specific styles */
+.safari-card .card-header {
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+}
+
+.safari-card .card-footer {
+  background: #f1f8e9;
+  color: #2e7d32;
+  border-top: 1px solid #c8e6c9;
+}
+
+/* Hotel-specific styles */
+.hotel-card .card-header {
+  background: linear-gradient(to right, #1565c0, #42a5f5);
+}
+
+.hotel-card .card-footer {
+  background: #e3f2fd;
+  color: #1565c0;
+  border-top: 1px solid #bbdefb;
+}
+
+@media (max-width: 600px) {
+  .pricing-card {
+    width: 100%;
+  }
+}
+
+/* panna welcome */
+/* General Styles for the About Section */
+.about-section {
+  background: linear-gradient(135deg, #e0f2f1, #a7ffeb); /* Using the gradient from previous code */
+  padding: 40px 20px;
+  color: #333; /* Dark text color for better readability */
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 1200px;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading Styling */
+.about-section h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #004d40; /* Dark green color for the heading */
+  text-transform: uppercase;
+  animation: slideIn 1s ease-in-out;
+}
+
+/* Slide-in Animation for the Heading */
+@keyframes slideIn {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Paragraph Styling */
+.about-section p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-out forwards;
+}
+
+/* Text Fade-in Animation */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Highlight Styling */
+.about-section .highlight {
+  font-weight: bold;
+  color: #ffcc00; /* Golden highlight color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-section h2 {
+    font-size: 1.8em;
     letter-spacing: 1px;
   }
-  
-  .book-btn:hover {
-    background: linear-gradient(135deg, #a4d85e, #3b6a33);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
+
+  .about-section p {
+    font-size: 1em;
   }
-  
-  .book-btn:active {
-    transform: scale(0.98);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 480px) {
+  .about-section h2 {
+    font-size: 1.5em;
   }
 
+  .about-section p {
+    font-size: 0.9em;
+  }
+}
 
-/*Responsive container*/
-.responsive-container {
-    width: 100%; /* Ensure the container takes up the full width of its parent */
-    max-width: 100vw; /* Prevent the container from exceeding the viewport width */
-    overflow-x: hidden;  /* Ensure that any horizontally overflowing content is clipped, not displayed */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+/* connectivity */
+
+/* General Styles */
+.transport-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px auto;
+  background: linear-gradient(135deg, #e0f2f1, #a7ffeb);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Card Container */
+.transport-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center; /* center items when wrapping */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card Styling */
+.info-card {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  flex: 1 1 300px; /* allow cards to shrink and grow, min 300px */
+  max-width: 450px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.info-card h3 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #004d40;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Hover Effect */
+.info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon Styling */
+.icon {
+  margin-bottom: 20px;
+  color: #004d40;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-card {
+    flex: 1 1 100%;
+    max-width: none;
+    margin-bottom: 20px;
   }
 
-  /* Optional: Add some padding for better visual appearance */
-  .responsive-container {
-      padding: 10px;
-      border: 1px solid #ccc;
-      margin: 20px 0;
+  .info-card h3 {
+    font-size: 22px;
   }
+
+  .info-card p {
+    font-size: 14px;
+  }
+
+  .icon i {
+    font-size: 3rem;
+  }
+}
+
+/* Book safari form */
+
+/* General Styling for Safari Booking Form */
+.safari-booking-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2f1, #a7ffeb);
+  padding: 2rem 1rem;
+}
+
+/* Form Wrapper */
+.form-wrapper {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.9s ease forwards;
+  transform: scale(0.95);
+  opacity: 0;
+  position: relative;
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Heading Styling */
+.safari-form h2 {
+  text-align: center;
+  color: #004d40;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Input Field Styling */
+.input-group {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 1rem 1rem 1rem 2.5rem;
+  font-size: 1rem;
+  border: 1px solid #80cbc4;
+  border-radius: 12px;
+  background: #f1fefc;
+  transition: 0.3s ease;
+  color: #004d40;
+  box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #004d40;
+  box-shadow: 0 0 8px rgba(0, 77, 64, 0.25);
+}
+
+/* Label Styling */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 2.5rem;
+  transform: translateY(-50%);
+  color: #555;
+  background: white;
+  padding: 0 0.25rem;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group select:focus + label,
+.input-group select:valid + label {
+  top: -8px;
+  left: 1.8rem;
+  font-size: 0.75rem;
+  color: #004d40;
+  background: #fff;
+}
+
+/* Icon Styling inside Input */
+.input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  animation: floatIcon 3s infinite ease-in-out;
+  opacity: 0.6;
+  color: #004d40;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-55%) translateX(3px); }
+}
+
+/* Submit Button Styling */
+.safari-form button {
+  background: linear-gradient(135deg, #00695c, #004d40);
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.safari-form button:hover {
+  background: linear-gradient(135deg, #009688, #004d40);
+  transform: scale(1.03);
+}
+
+/* Success Message Styling */
+.success-message {
+  display: none;
+  margin-top: 1.4rem;
+  background: #e0f2f1;
+  color: #004d40;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .safari-form {
+      padding: 2rem 1.5rem;
+  }
+  .safari-form h2 {
+      font-size: 1.4rem;
+  }
+}
+
+/* timeing */
+
+.timing-wrapper {
+  background: #ffffff;
+  margin: 3rem auto 2rem;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 800px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeInScale 0.8s ease;
+}
+
+.timing-wrapper h2 {
+  text-align: center;
+  color: #004d40;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+.zone-section {
+  margin-bottom: 2rem;
+}
+
+.zone-section h3 {
+  color: #00796b;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.zone-card {
+  background: #e0f2f1;
+  border-left: 5px solid #004d40;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.zone-card h4 {
+  margin-top: 0;
+  color: #00695c;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.zone-card p {
+  margin: 0.3rem 0;
+  color: #004d40;
+}
+
+/* navbar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #004d40;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  z-index: 9999;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.bottom-nav a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 8px 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.bottom-nav a i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.bottom-nav a:hover {
+  background-color: #00695c;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.bottom-nav a:active {
+  background-color: #005043;
+}
+
+@media (min-width: 769px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+

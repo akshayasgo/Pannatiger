@@ -1,28 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <div class="responsive-containe">
-    <div class="linear-btn-wrapper"><a href="#testc" class="book-btn">Book Safari</a></div>
-    <div id="card-carosol"> </div>
-    <div id="zone-details"> </div>
-    <div id="price"></div>
-    <div id="panna-welcome"></div> 
-    <div id="navbar"></div>
-    <div id="connectivity"></div>   
-    <div id="contact"></div> 
-    <div id="form"></div>
-    <div id="timeing"></div>
-    
+  <!-- Google Fonts for nature-style typography -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="styles.css">
+
+<!-- Fixed Jungle Style Header -->
+<div class="custom-header">
+  <div class="site-title">
+    <i class="fas fa-paw tiger-icon"></i>
+    <span>PannaTigerTrail</span>
   </div>
-      <script src="script.js"></script>
+  <div class="contact-number">
+    <i class="fas fa-phone-alt"></i>
+    <a href="tel:+917974175108">+91 7974175108</a>
+  </div>
+</div>
+<!-- Banner and Floating Contact Button inside a single div -->
+
+<div class="panna-safari-container">
+  <!-- Banner Section -->
+  <div class="banner-container">
+      <img class="banner-image" src="https://pannatiger-hdh6bwdwa9bmazbq.eastus2-01.azurewebsites.net/wp-content/uploads/2025/04/Aliondoesntturnarroundwhenadogbarks.jpeg" alt="Tiger">
+      <div class="banner-content">
+          <h1 class="banner-title">Panna Tiger Safari</h1>
+          <p class="banner-text">Into the Heart of the Forest, Your Safari Story Starts Here</p>
+          <button class="banner-button" onclick="scrollToTestc()">Book a Safari</button>
+      </div>
+  </div>
+
+  <!-- Floating Contact Button Section -->
+  <div class="chatbot-container">
+      <div class="chatbot-options" id="chatOptions">
+          <a href="tel:+917974175108"><i class="fas fa-phone"></i> Call Us</a>
+          <a href="https://wa.me/917974175108?text=I%20am%20interested%20in%20Safari%2C%20please%20share%20more%20details." target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+      <button class="chatbot-toggle" onclick="toggleChatOptions()">
+          <i class="fas fa-comments"></i>
+      </button>
+  </div>
+</div>
+
+<!-- Jungle Carousel Section -->
+<div  class="jungle-carousel-container">
+  <div class="jungle-carousel-wrapper">
+    <div class="jungle-carousel">
+      
+      <!-- Card 1 -->
+      <div class="jungle-card">
+        <div class="card-header">
+          <div class="icon-title">
+            <i class="fas fa-paw"></i>
+            <h3>Madla Zone</h3>
+          </div>
+          <div class="badge">Popular</div>
+        </div>
+        <ul class="card-body">
+          <li><i class="fas fa-sun"></i> Morning/Evening: Round</li>
+          <li><i class="fas fa-car-side"></i> Gate (Full Vehicle): Madla</li>
+          <li><i class="fas fa-users"></i> Gate (Sharing Basis): Madla</li>
+        </ul>
+        <div class="card-footer">
+          <strong>Note:</strong> Closed July 1 - Sept 30 & Wed Evenings
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="jungle-card">
+        <div class="card-header">
+          <div class="icon-title">
+            <i class="fas fa-paw"></i>
+            <h3>Hinauta Zone</h3>
+          </div>
+          <div class="badge green">New</div>
+        </div>
+        <ul class="card-body">
+          <li><i class="fas fa-sun"></i> Morning/Evening Round</li>
+          <li><i class="fas fa-car-side"></i> Gate (Full Vehicle): Hinauta</li>
+          <li><i class="fas fa-users"></i> Gate (Sharing Basis): Hinauta</li>
+        </ul>
+        <div class="card-footer">
+          <strong>Note:</strong> Closed July 1 - Sept 30 & Wed Evenings
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="jungle-card">
+        <div class="card-header">
+          <div class="icon-title">
+            <i class="fas fa-paw"></i>
+            <h3>Akola Zone</h3>
+          </div>
+          <div class="badge orange">Exclusive</div>
+        </div>
+        <ul class="card-body">
+          <li><i class="fas fa-sun"></i> Morning/Evening Round</li>
+          <li><i class="fas fa-car-side"></i> Gate (Full Vehicle): Akola</li>
+          <li><i class="fas fa-users"></i> Gate (Sharing Basis): Akola</li>
+        </ul>
+        <div class="card-footer">
+          <strong>Note:</strong> Closed July 1 - Sept 30 & Wed Evenings
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="jungle-card">
+        <div class="card-header">
+          <div class="icon-title">
+            <i class="fas fa-leaf"></i>
+            <h3>Buffer - Akola</h3>
+          </div>
+          <div class="badge blue">Open Year-Round</div>
+        </div>
+        <ul class="card-body">
+          <li><i class="fas fa-sun"></i> Morning/Evening: Round</li>
+          <li><i class="fas fa-door-open"></i> Entry Gate: Akola</li>
+        </ul>
+        <div class="card-footer">
+          <strong>Note:</strong> Open all year except Wed Evenings
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="jungle-card">
+        <div class="card-header">
+          <div class="icon-title">
+            <i class="fas fa-leaf"></i>
+            <h3>Buffer - Jinna</h3>
+          </div>
+          <div class="badge blue">Open Year-Round</div>
+        </div>
+        <ul class="card-body">
+          <li><i class="fas fa-sun"></i> Morning/Evening: Round</li>
+          <li><i class="fas fa-door-open"></i> Entry Gate: Jinna</li>
+        </ul>
+        <div class="card-footer">
+          <strong>Note:</strong> Open all year except Wed Evenings
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- this is a zone details section -->
+
+<div id="entry-gates" class="table-section">
+  <h5>Core Zone Safari Info</h5>
+
+  <div class="accordion-table">
+    <div class="accordion-row open">
+      <div class="accordion-header">
+        <span>Madla</span>
+        <span class="arrow">−</span>
+      </div>
+      <div class="accordion-content">
+        <p><strong>Round:</strong> Morning / Evening</p>
+        <p><strong>Entry Gate (Full Vehicle):</strong> Madla</p>
+        <p><strong>Entry Gate (Sharing Basis):</strong> Madla</p>
+      </div>
+    </div>
+
+    <div class="accordion-row open">
+      <div class="accordion-header">
+        <span>Hinauta</span>
+        <span class="arrow">−</span>
+      </div>
+      <div class="accordion-content">
+        <p><strong>Round:</strong> Morning / Evening</p>
+        <p><strong>Entry Gate (Full Vehicle):</strong> Hinauta</p>
+        <p><strong>Entry Gate (Sharing Basis):</strong> Hinauta</p>
+      </div>
+    </div>
+
+    <div class="accordion-row open">
+      <div class="accordion-header">
+        <span>Akola (Core)</span>
+        <span class="arrow">−</span>
+      </div>
+      <div class="accordion-content">
+        <p><strong>Round:</strong> Morning / Evening</p>
+        <p><strong>Entry Gate (Full Vehicle):</strong> Akola</p>
+        <p><strong>Entry Gate (Sharing Basis):</strong> Akola</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    <strong>Note:</strong> Panna Tiger Reserve Core Zone Gypsy Safari remains closed from 1st July to 30th September and on all Wednesday evenings every year.
+  </p>
+
+  <h5 style="margin-top: 20px;">Buffer Zone / Sanctuary Safari Info</h5>
+
+  <div class="accordion-table">
+    <div class="accordion-row open">
+      <div class="accordion-header">
+        <span>Akola (Buffer)</span>
+        <span class="arrow">−</span>
+      </div>
+      <div class="accordion-content">
+        <p><strong>Round:</strong> Morning / Evening</p>
+        <p><strong>Entry Gate:</strong> Akola</p>
+      </div>
+    </div>
+
+    <div class="accordion-row open">
+      <div class="accordion-header">
+        <span>Jinna</span>
+        <span class="arrow">−</span>
+      </div>
+      <div class="accordion-content">
+        <p><strong>Round:</strong> Morning / Evening</p>
+        <p><strong>Entry Gate:</strong> Jinna</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    <strong>Note:</strong> Panna National Park Buffer Zone Jeep Safari is always open except all Wednesday evenings.
+  </p>
+</div>
+<!-- Pricing cards -->
+
+<!-- Panna Safari & Hotel Pricing Section -->
+<div id="safari-info" class="panna-pricing-section">
+  <div class="panna-pricing-title">
+    <i class="fas fa-binoculars"></i> Panna Safari & Hotel Prices
+  </div>
+
+  <div class="panna-pricing-cards-wrapper">
+    <!-- Safari Pricing Card -->
+    <div class="pricing-card safari-card">
+      <div class="card-header"><i class="fas fa-list"></i> Safari Pricing</div>
+      <div class="card-body">
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-car"></i> Full Gypsy <span class="passenger-limit">(Up To 6 Persons)</span>
+          </span>
+          <span class="price-tag">₹7999 <small>(Indians)</small></span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-car"></i> Full Gypsy <span class="passenger-limit">(Up To 6 Persons)</span>
+          </span>
+          <span class="price-tag">₹12999 <small>(Foreigners)</small></span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-users"></i> Per Person (sharing)
+          </span>
+          <span class="price-tag">₹1799 <small>(Indians)</small></span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-users"></i> Per Person (sharing)
+          </span>
+          <span class="price-tag">₹2999 <small>(Foreigners)</small></span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="info-tag">
+          <i class="fas fa-check-circle"></i> Price Includes: Jeep, Driver, Permit, Guide, GST & Service Charges
+        </span>
+      </div>
+    </div>
+
+    <!-- Hotel Pricing Card -->
+    <div class="pricing-card hotel-card">
+      <div class="card-header"><i class="fas fa-hotel"></i> Hotels & Resorts</div>
+      <div class="card-body">
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-bed"></i> Budget Hotels
+          </span>
+          <span class="price-tag">From ₹2000</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-star-half-alt"></i> 3★ Hotels
+          </span>
+          <span class="price-tag">From ₹3500</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">
+            <i class="fas fa-star"></i> 5★ Hotels
+          </span>
+          <span class="price-tag">From ₹10000</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="info-tag">
+          <i class="fas fa-info-circle"></i> Prices may vary by season, availability & amenities
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Panna welcome  -->
+<!-- About Section -->
+<div class="about-section">
+  <h2>Welcome to Panna Tiger Reserve</h2>
+  <p>
+    Panna Tiger Reserve is a critical tiger habitat located in the <span class="highlight">Vindhya Hill</span> in northern Madhya Pradesh. It is a fragile yet dynamic dry deciduous forest. The land is characterized by vast plateaus, deep gorges, mesmerizing waterfalls, natural wonders, archaeological splendors, rich cultural heritage, and deep legends. 
+  </p>
+  <p>
+    The <span class="highlight">Ken River</span>, with its pristine beauty, flows through this reserve, adding to its enchanting landscape. Surrounded by natural boundaries, Panna is bordered by a teak forest to the north, while the east is enveloped by a Teak-Kardhai mixed forest.
+  </p>
+  <p>
+    The <span class="highlight">Vindhya Hill ranges</span>, which run from northeast to southwest, act as a natural bridge connecting the eastern and western populations of wild animals, making this reserve a key sanctuary for biodiversity.
+  </p>
+</div>
+
+<!-- Connectivity -->
+
+<!-- Transport Info Section -->
+<div class="transport-info-container">
+  <div class="transport-info">
+    <!-- Nearest Airport Section -->
+    <div class="info-card">
+      <div class="icon">
+        <i class="fas fa-plane-departure fa-3x"></i>
+      </div>
+      <h3>Nearest Airport</h3>
+      <p><strong>Khajuraho Airport</strong> (IATA: HJR, ICAO: VEKO) is a domestic airport serving Khajuraho and Chhatarpur in Madhya Pradesh. It's located 30km from the Panna Tiger Reserve.</p>
+    </div>
+    
+    <!-- Nearest Railway Station Section -->
+    <div class="info-card">
+      <div class="icon">
+        <i class="fas fa-train fa-3x"></i>
+      </div>
+      <h3>Nearest Railway Station</h3>
+      <p><strong>Khajuraho Railway Station</strong> (40km from the reserve) is the nearest station, with Satna Railway Junction (75km) offering more connectivity to major cities.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOrm -->
+
+<div id="testc" class="safari-booking-container">
+  <div class="form-wrapper">
+      <form class="safari-form" id="safariForm">
+          <h2>🌿 Book Your Safari</h2>
+  
+          <div class="input-group">
+              <input type="text" id="name" name="name" required placeholder="Your Name">
+              <label for="name">Your Name</label>
+              <span class="icon">✏️</span>
+          </div>
+  
+          <div class="input-group">
+              <input type="email" id="email" name="email" placeholder="Email Address">
+              <label for="email">Email Address</label>
+              <span class="icon">✉️</span>
+          </div>
+  
+          <div class="input-group">
+              <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+              <label for="phone">Phone Number</label>
+              <span class="icon">📞</span>
+          </div>
+  
+          <div class="input-group">
+              <input type="number" id="passengers" name="passengers" value="5" min="1" placeholder="Number of Passengers">
+              <label for="passengers">Number of Passengers</label>
+              <span class="icon">👥</span>
+          </div>
+  
+          <div class="input-group">
+              <select id="safariTime" name="safariTime">
+                  <option value="Morning" selected>Morning</option>
+                  <option value="Evening">Evening</option>
+              </select>
+              <label for="safariTime">Safari Time</label>
+              <span class="icon">🌅</span>
+          </div>
+  
+          <div class="input-group">
+              <input type="date" id="safariDate" name="safariDate" placeholder="Safari Date">
+              <label for="safariDate">Safari Date</label>
+              <span class="icon">📅</span>
+          </div>
+  
+          <button type="submit">🚙 Book Safari</button>
+          <div class="success-message" id="successMessage">✅ Inquiry submitted! We'll contact you soon.</div>
+      </form>
+  </div>
+</div>
+
+<!-- timeing -->
+<div id="time" class="timing-wrapper">
+  <h2>🕒 Safari Timings</h2>
+
+  <div class="zone-section">
+    <h3>❄️ Winter Season (Oct to Feb)</h3>
+    
+    <div class="zone-card">
+      <h4>🌲 Core Zone</h4>
+      <p><strong>Morning Round:</strong> Sunrise to 11:00 AM</p>
+      <p><strong>Evening Round:</strong> 3:00 PM to Sunset</p>
+    </div>
+
+    <div class="zone-card">
+      <h4>🌿 Buffer Zone</h4>
+      <p><strong>Morning Round:</strong> Sunrise to 11:00 AM</p>
+      <p><strong>Evening Round:</strong> 3:00 PM to Sunset</p>
+      <p><strong>Night Round:</strong> 6:00 PM to 9:00 PM</p>
+    </div>
+  </div>
+
+  <div class="zone-section">
+    <h3>🌞 Summer Season (Mar to Jun)</h3>
+    
+    <div class="zone-card">
+      <h4>🌲 Core Zone</h4>
+      <p><strong>Morning Round:</strong> Sunrise to 11:00 AM</p>
+      <p><strong>Evening Round:</strong> 4:00 PM to Sunset</p>
+    </div>
+  </div>
+
+  <div class="zone-section">
+    <h3>🌞 Summer Season (Mar to Sep)</h3>
+
+    <div class="zone-card">
+      <h4>🌿 Buffer Zone</h4>
+      <p><strong>Morning Round:</strong> Sunrise to 11:00 AM</p>
+      <p><strong>Evening Round:</strong> 4:00 PM to Sunset</p>
+      <p><strong>Night Round:</strong> 6:00 PM to 9:00 PM</p>
+    </div>
+  </div>
+</div>
+
+<!-- navbar -->
+
+<div class="bottom-nav">
+  <a href="/" id="homeLink"><i class="fas fa-home"></i>Home</a>
+  <a href="#safari-info" id="safariInfoLink"><i class="fas fa-paw"></i>Safari Price</a>
+  <a href="#entry-gates" id="zonesLink"><i class="fas fa-map-marked-alt"></i>Zones</a>
+  <a href="#time" id="timeing"><i class="fas fa-hourglass-half"></i>Timings</a>
+  <a href="#testc" id="bookSafariLink"><i class="fas fa-ticket-alt"></i>Book Safari</a>
+</div>
+
+<script src="script.js"></script>
+<!-- JavaScript for Floating Contact Button -->
+<script>
+  function toggleChatOptions() {
+      document.getElementById('chatOptions').classList.toggle('show');
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector('.jungle-carousel');
+  let isMouseDown = false;
+  let startX;
+  let scrollLeft;
+
+  // Enable dragging functionality
+  carousel.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isMouseDown = false;
+  });
+
+  carousel.addEventListener('mouseup', () => {
+    isMouseDown = false;
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; // Speed of scroll (increase multiplier for faster)
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // Optional: Automatically scroll the carousel every 3 seconds
+  setInterval(() => {
+    const scrollAmount = carousel.scrollWidth / carousel.children.length;
+    carousel.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  }, 3000);
+});
+</script>
+
 </body>
 </html>
