@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Safari</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e0f2f1, #a7ffeb);
+        }
+
+        .form-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .safari-form {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInScale 0.9s ease forwards;
+            transform: scale(0.95);
+            opacity: 0;
+            position: relative;
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .safari-form h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 1.8rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 1rem 1rem 1rem 2.5rem;
+            font-size: 1rem;
+            border: 1px solid #80cbc4;
+            border-radius: 12px;
+            background: #f1fefc;
+            transition: 0.3s ease;
+            color: #004d40;
+            box-sizing: border-box; /* Added box-sizing */
+        }
+
+        .input-group select:invalid {
+            color: #aaa;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #004d40;
+            box-shadow: 0 0 8px rgba(0, 77, 64, 0.25);
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 2.5rem;
+            transform: translateY(-50%);
+            color: #555;
+            background: white;
+            padding: 0 0.25rem;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label,
+        .input-group select:focus + label,
+        .input-group select:valid + label {
+            top: -8px;
+            left: 1.8rem;
+            font-size: 0.75rem;
+            color: #004d40;
+            background: #fff;
+        }
+
+        .input-group .icon {
+            position: absolute;
+            top: 50%;
+            left: 0.8rem;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            animation: floatIcon 3s infinite ease-in-out;
+            opacity: 0.6;
+            color: #004d40;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-55%) translateX(3px); }
+        }
+
+        .safari-form button {
+            background: linear-gradient(135deg, #00695c, #004d40);
+            color: white;
+            font-size: 1rem;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .safari-form button:hover {
+            background: linear-gradient(135deg, #009688, #004d40);
+            transform: scale(1.03);
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 1.4rem;
+            background: #e0f2f1;
+            color: #004d40;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 500px) {
+            .safari-form {
+                padding: 2rem 1.5rem;
+            }
+            .safari-form h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <form class="safari-form" id="safariForm">
+            <h2>🌿 Book Your Safari</h2>
+    
+            <div class="input-group">
+                <input type="text" id="name" name="name" required placeholder="Your Name">
+                <label for="name">Your Name</label>
+                <span class="icon">✏️</span>
+            </div>
+    
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Email Address">
+                <label for="email">Email Address</label>
+                <span class="icon">✉️</span>
+            </div>
+    
+            <div class="input-group">
+                <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                <label for="phone">Phone Number</label>
+                <span class="icon">📞</span>
+            </div>
+    
+            <div class="input-group">
+                <input type="number" id="passengers" name="passengers" value="5" min="1" placeholder="Number of Passengers">
+                <label for="passengers">Number of Passengers</label>
+                <span class="icon">👥</span>
+            </div>
+    
+            <div class="input-group">
+                <select id="safariTime" name="safariTime">
+                    <option value="Morning" selected>Morning</option>
+                    <option value="Evening">Evening</option>
+                </select>
+                <label for="safariTime">Safari Time</label>
+                <span class="icon">🌅</span>
+            </div>
+    
+            <div class="input-group">
+                <input type="date" id="safariDate" name="safariDate" placeholder="Safari Date">
+                <label for="safariDate">Safari Date</label>
+                <span class="icon">📅</span>
+            </div>
+    
+            <button type="submit">🚙 Book Safari</button>
+            <div class="success-message" id="successMessage">✅ Inquiry submitted! We'll contact you soon.</div>
+        </form>
+    </div>
+
+    <script>
+        const safariDateInput = document.getElementById('safariDate');
+        if (safariDateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            safariDateInput.value = today;
+        }
+
+        document.getElementById("safariForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+    
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+    
+            fetch("https://script.google.com/macros/s/AKfycbzqhBmRGwdVpJSOodAXIPp0-VhJyPc5Y5LRWaDI7tXE6q_agnXAxXkg7awAaez_XFYz/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                document.getElementById("successMessage").style.display = "block";
+                form.reset();
+                 if (safariDateInput) {
+                    safariDateInput.value = today;
+                }
+            })
+            .catch(err => {
+                alert("Error: " + err.message);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -33,3 +33,18 @@ html {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
   }
 
+
+/*Responsive container*/
+.responsive-container {
+    width: 100%; /* Ensure the container takes up the full width of its parent */
+    max-width: 100vw; /* Prevent the container from exceeding the viewport width */
+    overflow-x: hidden;  /* Ensure that any horizontally overflowing content is clipped, not displayed */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+
+  /* Optional: Add some padding for better visual appearance */
+  .responsive-container {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 20px 0;
+  }

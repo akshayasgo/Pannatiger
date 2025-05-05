@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari App Navbar Only</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #004d40;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      z-index: 9999;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 8px 0;
+      box-sizing: border-box;
+      white-space: nowrap;
+    }
+
+    .bottom-nav a i {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .bottom-nav a:hover {
+      background-color: #00695c;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .bottom-nav a:active {
+      background-color: #005043;
+    }
+
+    @media (min-width: 769px) {
+      .bottom-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bottom-nav">
+    <a href="/" id="homeLink"><i class="fas fa-home"></i>Home</a>
+    <a href="#safari-info" id="safariInfoLink"><i class="fas fa-paw"></i>Safari Price</a>
+    <a href="#entry-gates" id="zonesLink"><i class="fas fa-map-marked-alt"></i>Zones</a>
+    <a href="#time" id="timeing"><i class="fas fa-hourglass-half"></i>Timings</a>
+    <a href="#testc" id="bookSafariLink"><i class="fas fa-ticket-alt"></i>Book Safari</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = [
+        { id: 'homeLink', target: 'home' },
+        { id: 'safariInfoLink', target: 'safari-info' },
+        { id: 'zonesLink', target: 'entry-gates' },
+        { id: 'timeing', target: 'time' },
+        { id: 'bookSafariLink', target: 'testc' }
+      ];
+
+      links.forEach(link => {
+        const element = document.getElementById(link.id);
+        if (element) {
+          element.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetElement = document.getElementById(link.target);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              console.log(`Element with ID "${link.target}" not found.`);
+            }
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

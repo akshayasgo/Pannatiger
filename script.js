@@ -47,3 +47,36 @@ fetch('connectivity/index.html')
 .then(html => {
   document.getElementById('connectivity').innerHTML = html;
 });
+
+const navbar = document.querySelector('.navbar');
+
+fetch('navbar/index.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('navbar').innerHTML = html;
+});
+
+const contact = document.querySelector('.contact');
+
+fetch('contact/index.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('contact').innerHTML = html;
+});
+
+const form = document.querySelector('.form');
+
+fetch('form/index.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('contact').innerHTML = html;
+});
+
+const timeing = document.querySelector('.timeing');
+
+fetch('timeing/index.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('contact').innerHTML = html;
+});
+
