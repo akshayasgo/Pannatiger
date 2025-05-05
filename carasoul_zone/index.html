@@ -1,0 +1,232 @@
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+<div class="jungle-carousel-wrapper">
+  <div class="jungle-carousel">
+    
+    <!-- Card 1 -->
+    <div class="jungle-card">
+      <div class="card-header">
+        <div class="icon-title">
+          <i class="fas fa-paw"></i>
+          <h3>Madla Zone</h3>
+        </div>
+        <div class="badge">Popular</div>
+      </div>
+      <ul class="card-body">
+        <li><i class="fas fa-sun"></i> Morning/Evening: Round</li>
+        <li><i class="fas fa-car-side"></i> Gate (Full Vehicle): Madla</li>
+        <li><i class="fas fa-users"></i> Gate (Sharing Basis): Madla</li>
+      </ul>
+      <div class="card-footer">
+        <strong>Note:</strong> Closed July 1 - Sept 30 & Wed Evenings
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="jungle-card">
+      <div class="card-header">
+        <div class="icon-title">
+          <i class="fas fa-paw"></i>
+          <h3>Hinauta Zone</h3>
+        </div>
+        <div class="badge green">New</div>
+      </div>
+      <ul class="card-body">
+        <li><i class="fas fa-sun"></i> Morning/Evening Round</li>
+        <li><i class="fas fa-car-side"></i>  Gate (Full Vehicle): Hinauta</li>
+        <li><i class="fas fa-users"></i> Gate (Sharing Basis): Hinauta</li>
+      </ul>
+      <div class="card-footer">
+        <strong>Note:</strong> Closed July 1 - Sept 30 & Wed Evenings
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="jungle-card">
+      <div class="card-header">
+        <div class="icon-title">
+          <i class="fas fa-paw"></i>
+          <h3>Akola Zone</h3>
+        </div>
+        <div class="badge orange">Exclusive</div>
+      </div>
+      <ul class="card-body">
+        <li><i class="fas fa-sun"></i> Morning/Evening Round</li>
+        <li><i class="fas fa-car-side"></i> Gate (Full Vehicle): Akola</li>
+        <li><i class="fas fa-users"></i> Gate (Sharing Basis): Akola</li>
+      </ul>
+      <div class="card-footer">
+        <strong>Note:</strong> Closed July 1 - Sept 30 & Wed Evenings
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="jungle-card">
+      <div class="card-header">
+        <div class="icon-title">
+          <i class="fas fa-leaf"></i>
+          <h3>Buffer - Akola</h3>
+        </div>
+        <div class="badge blue">Open Year-Round</div>
+      </div>
+      <ul class="card-body">
+        <li><i class="fas fa-sun"></i> Morning/Evening: Round</li>
+        <li><i class="fas fa-door-open"></i> Entry Gate: Akola</li>
+      </ul>
+      <div class="card-footer">
+        <strong>Note:</strong> Open all year except Wed Evenings
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="jungle-card">
+      <div class="card-header">
+        <div class="icon-title">
+          <i class="fas fa-leaf"></i>
+          <h3>Buffer - Jinna</h3>
+        </div>
+        <div class="badge blue">Open Year-Round</div>
+      </div>
+      <ul class="card-body">
+        <li><i class="fas fa-sun"></i> Morning/Evening: Round</li>
+        <li><i class="fas fa-door-open"></i> Entry Gate: Jinna</li>
+      </ul>
+      <div class="card-footer">
+        <strong>Note:</strong> Open all year except Wed Evenings
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #e0f2f1;
+  }
+
+  .jungle-carousel-wrapper {
+    padding: 40px 20px;
+    background: url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png') repeat #e0f2f1;
+    border-radius: 15px;
+  }
+
+  .jungle-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 10px;
+  }
+
+  .jungle-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .jungle-card {
+    flex: 0 0 85%;
+    max-width: 320px;
+    background: white;
+    border-radius: 16px;
+    scroll-snap-align: start;
+    box-shadow: 0 8px 20px rgba(0, 105, 92, 0.2);
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://www.transparenttextures.com/patterns/leaves.png');
+    background-repeat: repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jungle-card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #004d40, #00695c);
+    color: white;
+    padding: 18px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .icon-title {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-title i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  .icon-title h3 {
+    font-size: 1.1em;
+    margin: 0;
+  }
+
+  .badge {
+    background: #ff5722;
+    color: white;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .badge.green {
+    background: #4caf50;
+  }
+
+  .badge.orange {
+    background: #ff9800;
+  }
+
+  .badge.blue {
+    background: #2196f3;
+  }
+
+  .card-body {
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #333;
+    list-style: none;
+  }
+
+  .card-body li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-body i {
+    margin-right: 10px;
+    color: #00695c;
+  }
+
+  .card-footer {
+    background: #e0f7fa;
+    padding: 12px 20px;
+    font-size: 13px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    color: #004d40;
+  }
+
+  @media (max-width: 768px) {
+    .jungle-card {
+      flex: 0 0 100%;
+    }
+  }
+</style>
