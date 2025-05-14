@@ -121,6 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function scrollToTestc() {
-      // Scroll to the section with the ID 'testc'
+      // Scroll to the section with the ID 'testc' nice
       document.getElementById('testc').scrollIntoView({ behavior: 'smooth' });
   }
