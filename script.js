@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     
         // Send data to Google Apps Script or your server
-        fetch("https://script.google.com/macros/s/AKfycbzqqfWytrm4PKpbmcbBnTObd5buPI4zcYUpRiRC8oal_YPr6n_tW5namGZvDFuPcNsa/exec", {
+        fetch(MAIL_TRIGGER, {
             method: "POST",
             mode: "no-cors",
             headers: {
