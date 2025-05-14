@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data[key] = value;
         });
     
-        // Send data to Google Apps Script or your server
+        // Send data to  Apps Script or your server
         fetch(mail_trigger, {
             method: "POST",
             mode: "no-cors",
