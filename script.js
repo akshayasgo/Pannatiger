@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
             data[key] = value;
         });
     
-        // Send data to  Apps Script or your server
-        fetch("https://script.google.com/macros/s/AKfycby4VYwZ7H6mlWEvBpvTUI_OB4vIMu7IcLxlrPXEETUchgsdu5FAyrw-GiHwYs5sut2u/exec", {
+        // Send data to Google Apps Script or your server
+        fetch("https://script.google.com/macros/s/AKfycbzqhBmRGwdVpJSOodAXIPp0-VhJyPc5Y5LRWaDI7tXE6q_agnXAxXkg7awAaez_XFYz/exec", {
             method: "POST",
             mode: "no-cors",
             headers: {
