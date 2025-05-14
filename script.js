@@ -1,41 +1,45 @@
-// Define today globally so it's available everywhere
-const today = new Date().toISOString().split('T')[0];
+document.addEventListener("DOMContentLoaded", function () {
+  const today = new Date().toISOString().split('T')[0];
+  const safariDateInput = document.getElementById('safariDate');
 
-// Set today's date as the default value for the date input
-const safariDateInput = document.getElementById('safariDate');
-if (safariDateInput) {
+  if (safariDateInput) {
     safariDateInput.value = today;
-}
+  }
 
-// Handle form submission
-document.getElementById("safariForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  // Handle form submission
+  const safariForm = document.getElementById("safariForm");
+  if (safariForm) {
+    safariForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach((value, key) => {
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
         data[key] = value;
-    });
+      });
 
-    // Send data to Google Apps Script or your server
-    fetch(MAIL_TRIGGER, {
+      // Send data to Google Apps Script or your server
+      fetch(MAIL_TRIGGER, {
         method: "POST",
         mode: "no-cors",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
-    })
-    .then(() => {
-        // Show success message and reset the form
+      })
+      .then(() => {
         document.getElementById("successMessage").style.display = "block";
         form.reset();
         if (safariDateInput) {
-            safariDateInput.value = today; // ✅ Will work now
+          safariDateInput.value = today;
         }
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         alert("Error: " + err.message);
+      });
     });
+  }
+
+  // You can move your other DOMContentLoaded code here as well...
 });
