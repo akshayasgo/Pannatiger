@@ -26,7 +26,7 @@ jobs:
 
       - name: Inject MAIL_TRIGGER into JS
         run: |
-          echo "const MAIL_TRIGGER = '${{ secrets.MAIL_TRIGGER }}';" > ./mail_trigger.js
+          echo "const MAIL_TRIGGER1 = '${{ secrets.MAIL_TRIGGER1 }}';" > ./mail_trigger.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
