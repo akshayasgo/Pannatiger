@@ -41,5 +41,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // You can move your other DOMContentLoaded code here as well...
 });
