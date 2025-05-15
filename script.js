@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
     // Set today's date as the default value for the date input
+    const today = new Date().toISOString().split('T')[0];
     const safariDateInput = document.getElementById('safariDate');
     if (safariDateInput) {
-        const today = new Date().toISOString().split('T')[0];
         safariDateInput.value = today;
     }
 
