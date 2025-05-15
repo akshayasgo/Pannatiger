@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
     // Set today's date as the default value for the date input
-    const today = new Date().toISOString().split('T')[0];
     const safariDateInput = document.getElementById('safariDate');
     if (safariDateInput) {
+        const today = new Date().toISOString().split('T')[0];
         safariDateInput.value = today;
     }
 
@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
             data[key] = value;
         });
     
-        // Send data to Google Apps Script or your server
-        fetch("https://script.google.com/macros/s/AKfycbzqhBmRGwdVpJSOodAXIPp0-VhJyPc5Y5LRWaDI7tXE6q_agnXAxXkg7awAaez_XFYz/exec", {
+        // Send data to  Apps Script or your server
+        fetch(mail_trigger1, {
             method: "POST",
             mode: "no-cors",
             headers: {
