@@ -54,12 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-    // Set today's date as the default value for the date input
-    const safariDateInput = document.getElementById('safariDate');
-    if (safariDateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        safariDateInput.value = today;
-    }
+// Set today's date as the default value for the date input
+const safariDateInput = document.getElementById('safariDate');
+const today = new Date().toISOString().split('T')[0];  // Declare outside
+
+if (safariDateInput) {
+    safariDateInput.value = today;
+}
 
     // Handle form submission
     document.getElementById("safariForm").addEventListener("submit", function(e) {
