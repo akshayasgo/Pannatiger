@@ -1,4 +1,4 @@
-<script>
+
   // Floating Chatbot Toggle
   function toggleChatOptions() {
     document.getElementById('chatOptions').classList.toggle('show');
@@ -137,4 +137,4 @@
   function scrollToTestc() {
     document.getElementById('testc').scrollIntoView({ behavior: 'smooth' });
   }
-</script>
+
